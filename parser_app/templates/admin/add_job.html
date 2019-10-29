@@ -1,0 +1,52 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="row">
+    {% if messages %}
+    <div class="span12">
+        {% for message in messages %}
+        <div class="alert alert-danger">
+            {{ message|safe }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title m-b-0">Add Job</h5>
+                <form method="post" action="/save_job/">
+                    {% csrf_token %}
+                    <div class="form-group m-t-20">
+                        <label>Title</label>
+                        <input type="text" name="title" class="form-control" placeholder="Enter Title">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea type="text" name="description" class="form-control"
+                                  placeholder="Enter Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Skills</label>
+                        <input type="text" name="skills" class="form-control" placeholder="Enter skills">
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="date" name="due_date" class="form-control" placeholder="Due date">
+                    </div>
+
+
+                    <div class="border-top">
+                        <div class="card-body">
+                            <input type="submit" class="btn btn-primary" value="Save">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}

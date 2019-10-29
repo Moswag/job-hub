@@ -1,0 +1,62 @@
+{% extends 'layouts/base2.html' %}
+
+{% block content %}
+                <div class="row">
+                    {% if messages %}
+                            <div class="span12">
+                                {% for message in messages %}
+                                    <div class="alert alert-success">
+                                        {{ message|safe }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">View Jobs</h5>
+                                <div class="table-responsive">
+                                    <table id="zero_config" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Description</th>
+                                                <th>Skills</th>
+                                                <th>Due Date</th>
+                                                <th>Added By</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for job in jobs %}
+                                            <tr>
+                                                <td>{{ job.title }}</td>
+                                                <td>{{ job.description }}</td>
+                                                <td>{{ job.skills }}</td>
+                                                <td>{{ job.due_date }}</td>
+                                                <td>{{ job.added_by }}</td>
+                                                <td>
+                                                    <a href="{% url 'apply' job_id=job.pk %}" class="btn-primary">Apply</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Description</th>
+                                                <th>Skills</th>
+                                                <th>Due Date</th>
+                                                <th>Added By</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

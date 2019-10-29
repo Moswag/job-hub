@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+                <div class="row">
+                    {% if messages %}
+                            <div class="span12">
+                                {% for message in messages %}
+                                    <div class="alert alert-success">
+                                        {{ message|safe }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">View admins</h5>
+                                <div class="table-responsive">
+                                    <table id="zero_config" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Surname</th>
+                                                <th>Email</th>
+                                                <th>Sex</th>
+                                                <th>DOB</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for admin in admins %}
+                                            <tr>
+                                                <td>{{ admin.first_name }}</td>
+                                                <td>{{ admin.last_name }}</td>
+                                                <td>{{ admin.email }}</td>
+                                                <td>{{ admin.sex }}</td>
+                                                <td>{{ admin.dob }}</td>
+                                                <td>
+                                                    <a href="" class="btn btn-primary">Edit</a>
+                                                    <a href=""  class="btn btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

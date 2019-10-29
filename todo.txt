@@ -1,0 +1,9 @@
+1.) create a database called jhub
+2.) enter the project folder
+3.) pip install -r requirements.txt
+4.) import database jhub.sql to your database
+5.) python3 manage.py runserver
+6.) visit localhost:8000
+7.) login as admin with makotore@gmail.com and password 12345678
+
+

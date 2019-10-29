@@ -1,0 +1,56 @@
+{% extends 'layouts/base2.html' %}
+{% load static %}
+{% load active %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+    {% if messages %}
+    <div class="span12">
+        {% for message in messages %}
+        <div class="alert alert-danger">
+            {{ message|safe }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title m-b-0">Apply For a job</h5>
+                <form method="POST" enctype="multipart/form-data" action="{% url 'homepage' %}"
+                      style="margin-top: 2%; margin-bottom: 3%">
+                    {% csrf_token }%}
+                    {% for j in job %}
+                     <div class="form-group">
+                        <label>Job TItle</label>
+                        <input type="text" value="{{ j.title }}" name="resume" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Job Description</label>
+                        <input type="tex" value="{{ j.description }}" name="resume" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="text" value="{{ j.due_date }}" name="resume" class="form-control" disabled>
+                    </div>
+
+                        <input type="hidden" value="{{ j.id }}" name="id" class="form-control" required>
+
+                    {% endfor %}
+                     <input type="hidden" value="{{request.session.email}}" name="email" class="form-control" required>
+                    <div class="form-group">
+                        <label>Pick CV</label>
+                        <input type="file" name="resume" class="form-control" required>
+                    </div>
+                    <button type="submit" id="import" name="import" class="btn btn-success"
+                            style="margin-top: 2%; border-radius: 0">Upload
+                    </button>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}
