@@ -18,7 +18,7 @@ construct==2.9.45
 contractions==0.0.21
 cymem==2.0.2
 defusedxml==0.6.0
-Django==2.2.6
+Django==2.2.20
 django-allauth==0.40.0
 django-crispy-forms==1.8.0
 django-rest-auth==0.9.5
