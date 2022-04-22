@@ -62,7 +62,7 @@ plac==0.9.6
 preshed==3.0.2
 pycparser==2.19
 pycryptodome==3.9.0
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 pyresparser==1.0.5
 pyrsistent==0.15.4
 pytesseract==0.3.0
